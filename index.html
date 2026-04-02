@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KJD Learning – Early Learning Workbooks for Little Minds</title>
+  <meta name="description" content="KJD Learning creates joyful, structured workbooks for preschoolers and early learners aged 2–5. Available on Amazon.in and Etsy." />
+  <meta property="og:title" content="KJD Learning – Early Learning Workbooks" />
+  <meta property="og:description" content="Joyful workbooks designed to help little minds grow. For ages 2–5." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kjdlearning.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #FFB703;
+      --sun-light: #FFF3CC;
+      --leaf: #2D9C5A;
+      --leaf-light: #D6F5E3;
+      --sky: #0099CC;
+      --sky-light: #D6F0FA;
+      --coral: #F05A28;
+      --coral-light: #FDEEE8;
+      --ink: #1A1A2E;
+      --ink-soft: #3D3D5C;
+      --muted: #6B6B8A;
+      --surface: #FAFAF7;
+      --white: #FFFFFF;
+      --border: #E8E8F0;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 24px rgba(26,26,46,0.07);
+      --shadow-hover: 0 8px 40px rgba(26,26,46,0.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--sun);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--leaf); }
+
+    .nav-cta {
+      background: var(--leaf);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: #237A47 !important; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 5vw 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sun-light);
+      color: #7A5500;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--sun);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--leaf);
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 50px;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+    .btn-primary {
+      background: var(--leaf);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--ink);
+      border: 2px solid var(--border);
+    }
+
+    .btn-amazon {
+      background: var(--sun);
+      color: var(--ink);
+    }
+
+    .btn-etsy {
+      background: var(--coral);
+      color: white;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-blob {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      background: var(--sun-light);
+      border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+      z-index: 0;
+    }
+
+    .book-stack {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      box-shadow: var(--shadow);
+      width: 280px;
+      border-left: 5px solid;
+      transition: transform 0.2s;
+    }
+
+    .book-card:hover { transform: translateX(4px); }
+
+    .book-card:nth-child(1) { border-color: var(--sun); transform: rotate(-2deg); }
+    .book-card:nth-child(1):hover { transform: rotate(-2deg) translateX(4px); }
+    .book-card:nth-child(2) { border-color: var(--leaf); transform: rotate(1deg); }
+    .book-card:nth-child(2):hover { transform: rotate(1deg) translateX(4px); }
+    .book-card:nth-child(3) { border-color: var(--sky); transform: rotate(-1.5deg); }
+    .book-card:nth-child(3):hover { transform: rotate(-1.5deg) translateX(4px); }
+
+    .book-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .book-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .book-meta {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--ink);
+      color: white;
+      padding: 18px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 5vw, 80px);
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .trust-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* SECTION LAYOUT */
+    section {
+      padding: 80px 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .section-header p {
+      margin-top: 14px;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* WHY CARDS */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .why-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .why-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* SHOP SECTION */
+    .shop-section {
+      background: var(--leaf);
+      border-radius: 32px;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 80px;
+    }
+
+    .shop-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .shop-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      line-height: 1.75;
+    }
+
+    .shop-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .shop-card {
+      background: rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .shop-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .shop-card-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .shop-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: transform 0.15s;
+    }
+
+    .shop-link:hover { transform: translateY(-2px); }
+
+    .shop-link-amazon {
+      background: var(--sun);
+      color: var(--ink);
+    }
+
+    .shop-link-etsy {
+      background: var(--coral);
+      color: white;
+    }
+
+    /* ABOUT */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-big-letter {
+      font-family: 'Fraunces', serif;
+      font-size: 220px;
+      font-weight: 700;
+      color: var(--sun-light);
+      line-height: 1;
+      user-select: none;
+      position: absolute;
+      top: -30px;
+      left: -20px;
+      z-index: 0;
+    }
+
+    .about-badge-stack {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 40px 0 0 20px;
+    }
+
+    .about-badge {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .about-badge .label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .about-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 60px 5vw 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+
+    .footer-logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--sun); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 5vw 40px;
+        gap: 40px;
+      }
+
+      .hero-visual { display: none; }
+
+      .shop-section {
+        grid-template-columns: 1fr;
+        padding: 40px 28px;
+      }
+
+      .about-wrap {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .about-big-letter { font-size: 140px; }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      nav .nav-links { display: none; }
+    }
+
+    /* ANIMATIONS */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(-2deg); }
+    }
+
+    .book-card:nth-child(1) { animation: float 4s ease-in-out infinite; }
+
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0px) rotate(1deg); }
+      50% { transform: translateY(-6px) rotate(1deg); }
+    }
+
+    .book-card:nth-child(2) { animation: float2 5s ease-in-out infinite 0.8s; }
+
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+      50% { transform: translateY(-10px) rotate(-1.5deg); }
+    }
+
+    .book-card:nth-child(3) { animation: float3 4.5s ease-in-out infinite 1.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">K</div>
+      <div class="logo-text">
+        KJD Learning
+        <span>Early Learning</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Our Books</a></li>
+      <li><a href="#shop" class="nav-cta">Shop Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">For ages 2–5</div>
+        <h1>Where little minds begin to <em>grow</em></h1>
+        <p class="hero-desc">Beautifully designed preschool workbooks that make early learning joyful, structured, and screen-free. Trusted by parents and educators across India.</p>
+        <div class="hero-buttons">
+          <a href="https://www.amazon.in/s?k=KJD+Learning" target="_blank" rel="noopener" class="btn btn-amazon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Shop on Amazon
+          </a>
+          <a href="https://www.etsy.com/shop/KJDLearning" target="_blank" rel="noopener" class="btn btn-etsy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Shop on Etsy
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <div class="book-stack">
+          <div class="book-card">
+            <div class="book-tag" style="color:#7A5500;">✏️ Writing & Tracing</div>
+            <div class="book-title">My First Tracing Book</div>
+            <div class="book-meta">Ages 3–5 · 50 activity pages</div>
+          </div>
+          <div class="book-card">
+            <div class="book-tag" style="color:#1A5C38;">🔢 Numbers</div>
+            <div class="book-title">Count & Colour Fun</div>
+            <div class="book-meta">Ages 2–4 · 40 activity pages</div>
+          </div>
+          <div class="book-card">
+            <div class="book-tag" style="color:#00567A;">🔤 Alphabet</div>
+            <div class="book-title">ABC Adventure Workbook</div>
+            <div class="book-meta">Ages 3–5 · 60 activity pages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon" style="background:rgba(255,183,3,0.2);">📚</div>
+      <span>Curriculum-aligned content</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" style="background:rgba(45,156,90,0.2);">🖨️</div>
+      <span>Print-ready & screen-free</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" style="background:rgba(240,90,40,0.2);">❤️</div>
+      <span>Made with love in India</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" style="background:rgba(0,153,204,0.2);">⭐</div>
+      <span>Available on Amazon & Etsy</span>
+    </div>
+  </div>
+
+  <!-- WHY SECTION -->
+  <section id="why">
+    <div class="section-header">
+      <div class="section-label">Why KJD Learning</div>
+      <h2>Books that respect how children actually learn</h2>
+      <p>Every workbook is built around early childhood development principles — play, repetition, and joy.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon" style="background:var(--sun-light);">🎨</div>
+        <h3>Visually engaging</h3>
+        <p>Bright, cheerful illustrations that hold a young child's attention and make learning feel like play.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:var(--leaf-light);">🧠</div>
+        <h3>Age-appropriate</h3>
+        <p>Each book is designed for specific developmental milestones — no overwhelming complexity, no oversimplification.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:var(--sky-light);">📐</div>
+        <h3>Structured progression</h3>
+        <p>Activities build on each other so children feel a genuine sense of accomplishment as they work through each book.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:var(--coral-light);">🏠</div>
+        <h3>Perfect for home use</h3>
+        <p>Easy for parents to use without preparation. Great for quiet time, car rides, or structured home learning sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP SECTION -->
+  <div style="padding: 0 5vw;">
+    <div class="shop-section" id="shop">
+      <div>
+        <h2>Find our workbooks on your favourite platform</h2>
+        <p>We're available on both Amazon.in and Etsy — shop wherever is most convenient for you. Physical books, shipped to your door.</p>
+        <div class="shop-buttons">
+          <a href="https://www.amazon.in/s?k=KJD+Learning" target="_blank" rel="noopener" class="shop-link shop-link-amazon">
+            🛒 Amazon.in
+          </a>
+          <a href="https://www.etsy.com/shop/KJDLearning" target="_blank" rel="noopener" class="shop-link shop-link-etsy">
+            🧡 Etsy Shop
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="shop-card" style="margin-bottom:16px;">
+          <div class="shop-card-title">Amazon.in</div>
+          <div class="shop-card-sub">Fast delivery · Easy returns · Cash on delivery available</div>
+          <a href="https://www.amazon.in/s?k=KJD+Learning" target="_blank" rel="noopener" class="shop-link shop-link-amazon" style="font-size:13px; padding:8px 16px;">View on Amazon →</a>
+        </div>
+        <div class="shop-card">
+          <div class="shop-card-title">Etsy</div>
+          <div class="shop-card-sub">International shipping · Secure checkout · Direct from us</div>
+          <a href="https://www.etsy.com/shop/KJDLearning" target="_blank" rel="noopener" class="shop-link shop-link-etsy" style="font-size:13px; padding:8px 16px;">View on Etsy →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding-top:20px;">
+    <div class="about-wrap">
+      <div class="about-visual">
+        <div class="about-big-letter">K</div>
+        <div class="about-badge-stack">
+          <div class="about-badge" style="border-color:var(--sun);">
+            <div class="label">Our focus</div>
+            Preschool & Early Years (Ages 2–5)
+          </div>
+          <div class="about-badge" style="border-color:var(--leaf);">
+            <div class="label">Format</div>
+            Physical workbooks · Activity-based learning
+          </div>
+          <div class="about-badge" style="border-color:var(--sky);">
+            <div class="label">Where to buy</div>
+            Amazon.in · Etsy · kjdlearning.com
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="section-label">About KJD Learning</div>
+        <h2>A small brand with a big belief in early education</h2>
+        <p>KJD Learning was founded with one simple idea: that the earliest years of a child's education are the most important — and deserve materials that are as thoughtful as the children using them.</p>
+        <p>We create preschool workbooks for ages 2–5 that blend structured learning with the kind of colour, fun, and gentle challenge that keeps little ones engaged. No screens, no subscriptions — just good books.</p>
+        <p style="font-weight:700; color:var(--leaf);">Made in India, for learners everywhere. 🌱</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-text">KJD Learning</div>
+          <p>Early learning workbooks for curious little minds. Designed for children aged 2–5, available on Amazon.in and Etsy.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="https://www.amazon.in/s?k=KJD+Learning" target="_blank" rel="noopener">Amazon.in</a>
+          <a href="https://www.etsy.com/shop/KJDLearning" target="_blank" rel="noopener">Etsy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="#why">Our Books</a>
+          <a href="#about">About Us</a>
+          <a href="#shop">Where to Buy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 KJD Learning. All rights reserved.</span>
+        <span>kjdlearning.com</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

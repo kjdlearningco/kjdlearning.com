@@ -1,225 +1,659 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>KJD Learning – School Readiness Workbooks for Toddlers</title>
-<meta name="description" content="KJD Learning creates structured school readiness workbooks for children aged 1.5–5." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KJD Learning – School Readiness Workbooks for Toddlers</title>
+  <meta name="description" content="KJD Learning creates structured school readiness workbooks for children aged 1.5–5. Build pencil control, focus, and thinking skills step by step." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet" />
 
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --sun:#FFB703;
-  --sun-light:#FFF3CC;
-  --leaf:#2D9C5A;
-  --sky:#0099CC;
-  --ink:#1A1A2E;
-  --muted:#6B6B8A;
-  --surface:#FAFAF7;
-  --white:#fff;
-  --radius:18px;
-}
+    :root {
+      --sun:         #FFB703;
+      --sun-light:   #FFF3CC;
+      --leaf:        #2D9C5A;
+      --leaf-light:  #D6F5E3;
+      --sky:         #0099CC;
+      --sky-light:   #D6F0FA;
+      --coral:       #F05A28;
+      --coral-light: #FDEEE8;
+      --purple:      #7C3AED;
+      --purple-light:#EDE9FE;
+      --pink:        #EC4899;
+      --pink-light:  #FCE7F3;
+      --ink:         #1A1A2E;
+      --ink-soft:    #3D3D5C;
+      --muted:       #6B6B8A;
+      --surface:     #FAFAF7;
+      --white:       #FFFFFF;
+      --border:      #E8E8F0;
+      --radius:      18px;
+      --shadow:      0 4px 24px rgba(26,26,46,0.08);
+      --shadow-hover:0 20px 50px rgba(26,26,46,0.12);
+    }
 
-/* GLOBAL */
-body {
-  font-family:'Nunito',sans-serif;
-  background:var(--surface);
-  color:var(--ink);
-  line-height:1.6;
-}
+    html { scroll-behavior: smooth; }
 
-/* NAV */
-nav {
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,0.85);
-  border-bottom:1px solid rgba(0,0,0,0.05);
-}
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* HERO */
-.hero {
-  animation:fadeUp 0.8s ease both;
-}
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 0 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 42px; width: auto; }
+    .nav-logo-fallback {
+      width: 38px; height: 38px; background: var(--sun); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--ink);
+    }
+    .logo-text { font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; color: var(--ink); line-height: 1.1; }
+    .logo-text span { display: block; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { text-decoration: none; font-weight: 700; font-size: 14px; color: var(--ink-soft); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--leaf); }
+    .nav-cta { background: var(--leaf) !important; color: white !important; padding: 8px 20px; border-radius: 50px; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: #237A47 !important; transform: translateY(-1px); }
 
-.hero h1 {
-  letter-spacing:-0.02em;
-}
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; font-weight: 800; font-size: 15px;
+      padding: 14px 26px; border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .btn-amazon { background: var(--sun); color: var(--ink); }
 
-.hero img {
-  border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.12);
-}
+    .btn-sm {
+      font-size: 13px; padding: 10px 18px; border-radius: 50px;
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; font-weight: 800;
+      transition: all 0.2s ease;
+    }
+    .btn-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
 
-/* BUTTON */
-.btn {
-  transition:all .2s ease;
-}
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 5vw 56px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--sun-light); color: #7A5500;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 50px; margin-bottom: 20px;
+    }
+    .hero-eyebrow::before { content:''; display:inline-block; width:7px; height:7px; background:var(--sun); border-radius:50%; }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(34px,4vw,54px); font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.02em; }
+    .hero h1 em { font-style: italic; color: var(--leaf); }
+    .hero-desc { font-size: 17px; color: var(--ink-soft); max-width: 460px; margin-bottom: 12px; line-height: 1.75; }
+    .hero-subdesc { font-size: 15px; color: var(--muted); max-width: 440px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-subdesc strong { color: var(--ink-soft); }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
 
-.btn:hover {
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
+    /* hero visual */
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-blob { position: absolute; width: 380px; height: 380px; background: var(--sun-light); border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%; z-index: 0; }
+    .hero-blob-2 { position: absolute; width: 200px; height: 200px; background: var(--leaf-light); border-radius: 50%; top: 20px; right: 10px; z-index: 0; }
+    .book-stack { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+    .book-card { background: white; border-radius: var(--radius); padding: 18px 24px; box-shadow: var(--shadow); width: 290px; border-left: 5px solid; }
+    .book-card:nth-child(1) { border-color: var(--sun); animation: float1 4s ease-in-out infinite; }
+    .book-card:nth-child(2) { border-color: var(--leaf); animation: float2 5s ease-in-out infinite 0.8s; }
+    .book-card:nth-child(3) { border-color: var(--sky); animation: float3 4.5s ease-in-out infinite 1.5s; }
+    .book-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .book-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+    .book-meta { font-size: 12px; color: var(--muted); font-weight: 600; }
 
-/* PRODUCT CARDS */
-.product-card {
-  transition:all .25s ease;
-  border:1px solid rgba(0,0,0,0.04);
-}
+    @keyframes float1 { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-8px) rotate(-2deg)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0) rotate(1.2deg)} 50%{transform:translateY(-6px) rotate(1.2deg)} }
+    @keyframes float3 { 0%,100%{transform:translateY(0) rotate(-1.5deg)} 50%{transform:translateY(-10px) rotate(-1.5deg)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-.product-card:hover {
-  transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(0,0,0,0.12);
-}
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--ink); color: white; padding: 18px 5vw;
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(24px,5vw,80px); flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; }
+    .trust-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
 
-.product-card img {
-  border-radius:12px;
-}
+    /* ── SHARED SECTION ── */
+    .section-wrap { padding: 80px 5vw; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-label { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--leaf); margin-bottom: 12px; }
+    .section-header h2 { font-family: 'Fraunces', serif; font-size: clamp(26px,3vw,38px); font-weight: 700; color: var(--ink); line-height: 1.15; }
+    .section-header p { margin-top: 14px; font-size: 16px; color: var(--muted); max-width: 520px; margin-left: auto; margin-right: auto; }
 
-/* INSIDE GRID */
-.inside-grid img {
-  border-radius:14px;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
+    /* ── WHO IS IT FOR ── */
+    .who-bg { background: linear-gradient(135deg, var(--purple-light) 0%, var(--sky-light) 100%); padding: 80px 5vw; }
+    .who-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; }
+    .who-card { background: white; border-radius: var(--radius); padding: 28px 24px; text-align: center; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .who-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .who-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; }
+    .who-card h3 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .who-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-.inside-grid img:hover {
-  transform:scale(1.04);
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
+    /* ── PRODUCTS ── */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 28px; }
+    .product-card {
+      background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.25s ease; display: flex; flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+    .product-img-wrap { height: 260px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+    .product-age-badge { position: absolute; top: 14px; right: 14px; background: white; color: var(--ink); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 50px; box-shadow: var(--shadow); }
+    .product-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .product-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .product-body h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
+    .product-body p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+    .product-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .skill-pill { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px; }
+    .product-buttons { margin-top: auto; }
 
-/* REVIEWS */
-.review-card {
-  border:1px solid rgba(0,0,0,0.05);
-  transition:.25s ease;
-}
+    /* ── SKILLS SYSTEM ── */
+    .skills-bg { background: var(--leaf); padding: 80px 5vw; }
+    .skills-header { text-align: center; margin-bottom: 48px; }
+    .skills-header h2 { font-family: 'Fraunces', serif; font-size: clamp(26px,3vw,38px); font-weight: 700; color: white; line-height: 1.15; }
+    .skills-header p { margin-top: 14px; font-size: 16px; color: rgba(255,255,255,0.8); max-width: 500px; margin-left: auto; margin-right: auto; }
+    .skills-steps { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 16px; }
+    .skill-step { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: background 0.2s; }
+    .skill-step:hover { background: rgba(255,255,255,0.2); }
+    .skill-step-num { width: 36px; height: 36px; border-radius: 50%; background: white; color: var(--leaf); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .skill-step h4 { font-size: 15px; font-weight: 800; color: white; margin-bottom: 6px; }
+    .skill-step p { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.6; }
 
-.review-card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.12);
-}
+    /* ── INSIDE PAGES ── */
+    .inside-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; }
+    .inside-grid img { width: 100%; border-radius: 14px; display: block; transition: transform 0.25s ease, box-shadow 0.25s ease; box-shadow: var(--shadow); }
+    .inside-grid img:hover { transform: scale(1.04); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
-/* FOOTER */
-footer {
-  letter-spacing:.3px;
-}
+    /* ── WHY DIFFERENT ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 24px; }
+    .why-card { background: white; border-radius: var(--radius); padding: 30px 26px; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .why-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+    .why-card h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+    .why-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-/* ANIMATION */
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
-}
+    /* ── HOW TO USE ── */
+    .how-bg { background: linear-gradient(135deg, var(--sun-light) 0%, var(--pink-light) 100%); padding: 80px 5vw; }
+    .how-steps { max-width: 900px; margin: 48px auto 0; display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
+    .how-step { background: white; border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: var(--shadow); }
+    .how-num { width: 44px; height: 44px; border-radius: 50%; background: var(--sun); color: var(--ink); font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .how-step h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    .how-step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-/* MOBILE */
-@media (max-width:768px){
-  .hero{grid-template-columns:1fr}
-}
-</style>
+    /* ── REVIEWS ── */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; }
+    .review-card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.05); border-top: 4px solid; transition: 0.25s ease; }
+    .review-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+    .review-stars { font-size: 18px; margin-bottom: 14px; }
+    .review-text { font-size: 15px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 16px; font-style: italic; }
+    .review-author { font-size: 13px; font-weight: 800; color: var(--muted); }
+    .review-source { font-size: 11px; color: var(--muted); font-weight: 600; opacity: 0.7; }
+
+    /* ── SHOP CTA ── */
+    .shop-cta { background: var(--ink); padding: 80px 5vw; text-align: center; }
+    .shop-cta h2 { font-family: 'Fraunces', serif; font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: white; margin-bottom: 16px; }
+    .shop-cta p { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 36px; line-height: 1.7; }
+    .shop-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── ABOUT ── */
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-visual { position: relative; }
+    .about-big-letter { font-family: 'Fraunces', serif; font-size: 200px; font-weight: 700; color: var(--sun-light); line-height: 1; user-select: none; position: absolute; top: -20px; left: -20px; z-index: 0; }
+    .about-badge-stack { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; padding: 40px 0 0 20px; }
+    .about-badge { background: white; border-radius: 14px; padding: 14px 18px; box-shadow: var(--shadow); border-left: 4px solid; font-weight: 700; font-size: 14px; color: var(--ink); }
+    .about-badge .label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
+    .about-content h2 { font-family: 'Fraunces', serif; font-size: clamp(26px,3vw,36px); font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 18px; }
+    .about-content p { font-size: 16px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 14px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: white; padding: 56px 5vw 32px; letter-spacing: 0.3px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-top: 12px; max-width: 300px; }
+    .footer-logo-text { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; }
+    .footer-col h4 { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--sun); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; font-size: 13px; color: rgba(255,255,255,0.3); flex-wrap: wrap; gap: 10px; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding: 48px 5vw 40px; gap: 40px; }
+      .hero-visual { display: none; }
+      .about-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .about-big-letter { font-size: 130px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      nav .nav-links { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav>
-  <img src="logo.png" height="42">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="KJD Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none;">K</div>
+    <div class="logo-text">KJD Learning<span>School Readiness</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Workbooks</a></li>
+    <li><a href="#skills">Skills System</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#shop" class="nav-cta">Shop Now</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <h1>Build school readiness <em>before</em> school starts</h1>
-    <p>Structured workbooks that train pencil control, focus, and thinking skills — step by step.</p>
-    <a href="https://tinyurl.com/4sxj8zde" class="btn btn-amazon">🛒 View on Amazon (See Reviews)</a>
-  </div>
-  <div style="margin-top:14px;font-size:13px;color:#6B6B8A;font-weight:700;">
-  ⭐ Trusted by parents • 📦 Available on Amazon India • ⏳ Limited stock batches
-  </div>
-  <div>
-    <img src="book1.png" style="width:100%">
+<!-- ── HERO ── -->
+<div style="max-width:1200px;margin:0 auto;">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">For ages 1.5–5 years</div>
+      <h1>Build school readiness <em>before</em> school starts</h1>
+      <p class="hero-desc">Structured workbooks that train pencil control, focus, and thinking skills — step by step, in just 10 minutes a day.</p>
+      <p class="hero-subdesc"><strong>Not random worksheets.</strong> A complete 5-step skill-building system, designed around what preschools actually expect.</p>
+      <div class="hero-buttons">
+        <a href="https://tinyurl.com/4sxj8zde" target="_blank" rel="noopener" class="btn btn-amazon">🛒 View on Amazon (See Reviews)</a>
+      </div>
+      <div style="font-size:13px;color:#6B6B8A;font-weight:700;">
+        ⭐ Trusted by parents &nbsp;•&nbsp; 📦 Available on Amazon India &nbsp;•&nbsp; ⏳ Limited stock batches
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-blob"></div>
+      <div class="hero-blob-2"></div>
+      <div class="book-stack">
+        <div class="book-card">
+          <div class="book-tag" style="color:#7A5500;">✏️ Hand Control & Readiness</div>
+          <div class="book-title">First Skills Workbook</div>
+          <div class="book-meta">Ages 1.5–3 · 130+ Activities</div>
+        </div>
+        <div class="book-card">
+          <div class="book-tag" style="color:#1A5C38;">🎒 School Readiness</div>
+          <div class="book-title">Nursery & KG Readiness Workbook</div>
+          <div class="book-meta">Ages 3–5 · Full Skill System</div>
+        </div>
+        <div class="book-card">
+          <div class="book-tag" style="color:#00567A;">🖊️ Distraction-Free</div>
+          <div class="book-title">Black & White Edition</div>
+          <div class="book-meta">Ages 3–5 · Screen-Free Learning</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- PRODUCTS -->
-<div class="section-wrap">
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-icon" style="background:rgba(255,183,3,0.2);">📚</div><span>130+ structured activities</span></div>
+  <div class="trust-item"><div class="trust-icon" style="background:rgba(45,156,90,0.2);">🎯</div><span>5-step skill progression</span></div>
+  <div class="trust-item"><div class="trust-icon" style="background:rgba(240,90,40,0.2);">🏫</div><span>Preschool & nursery aligned</span></div>
+  <div class="trust-item"><div class="trust-icon" style="background:rgba(0,153,204,0.2);">📦</div><span>Available on Amazon India</span></div>
+</div>
+
+<!-- ── WHO IS IT FOR ── -->
+<div class="who-bg">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-label">Who is this for?</div>
+      <h2>Made for parents who want a head start</h2>
+      <p>You don't need to be a teacher. Our books guide both of you through every step.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon" style="background:var(--sun-light);">👶</div>
+        <h3>Toddlers aged 1.5–3</h3>
+        <p>Building first attention, hand control, and thinking skills before playgroup or nursery begins.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" style="background:var(--leaf-light);">🎒</div>
+        <h3>Pre-schoolers aged 3–5</h3>
+        <p>Preparing for KG and school with structured practice in writing, letters, numbers, and following instructions.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" style="background:var(--sky-light);">🏠</div>
+        <h3>Home-learning parents</h3>
+        <p>Simple enough to use without any teaching background — just sit down together and follow along.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" style="background:var(--pink-light);">📋</div>
+        <h3>School admission prep</h3>
+        <p>Many admission interactions test pointing, sorting, and following instructions — exactly what we practise.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCTS ── -->
+<div class="section-wrap" id="products">
+  <div class="section-header">
+    <div class="section-label">Our Workbooks</div>
+    <h2>Choose the right book for your child</h2>
+    <p>Each book targets a specific age and skill stage. They can be used independently or as a series.</p>
+  </div>
   <div class="products-grid">
 
+    <!-- BOOK 1: TODDLER -->
     <div class="product-card">
-      <img src="book1.png" style="width:100%">
-      <h3>First Skills Workbook</h3>
-      <a href="https://tinyurl.com/4sxj8zde" class="btn btn-amazon">Amazon</a>
-      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
-      130+ activities • Builds real school skills
+      <div class="product-img-wrap" style="background:var(--sun-light);">
+        <img src="book1.png" alt="First Skills Workbook for Toddlers">
+        <div class="product-age-badge">Ages 1.5–3</div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag" style="color:var(--leaf);">Most Popular</div>
+        <h3>First Skills Workbook for Toddlers</h3>
+        <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:8px;">130+ activities • Builds real school skills</div>
+        <p>130+ activities across 5 structured sections. Builds the real skills children need before starting playgroup or nursery.</p>
+        <div class="product-skills">
+          <span class="skill-pill" style="background:var(--sun-light);color:#7A5500;">✏️ Hand Control</span>
+          <span class="skill-pill" style="background:var(--leaf-light);color:#1A5C38;">🔍 Matching</span>
+          <span class="skill-pill" style="background:var(--sky-light);color:#00567A;">📐 Concepts</span>
+          <span class="skill-pill" style="background:var(--purple-light);color:#4C1D95;">👂 Instructions</span>
+        </div>
+        <div style="font-size:12px;color:#2D9C5A;font-weight:800;margin-bottom:14px;">✔ Age-appropriate &nbsp;•&nbsp; ✔ Structured progression &nbsp;•&nbsp; ✔ No prep needed</div>
+        <div class="product-buttons">
+          <a href="https://tinyurl.com/4sxj8zde" target="_blank" rel="noopener" class="btn-sm btn-amazon">🛒 View on Amazon (See Reviews)</a>
+        </div>
       </div>
     </div>
 
+    <!-- BOOK 2: COLOUR NURSERY -->
     <div class="product-card">
-      <img src="book2.png" style="width:100%">
-      <h3>Nursery Colour Workbook</h3>
-      <a href="https://tinyurl.com/2ns4sw28" class="btn btn-amazon">Amazon</a>
-      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
-      290+ activities • Builds real school skills
+      <div class="product-img-wrap" style="background:var(--leaf-light);">
+        <img src="book2.png" alt="Nursery and KG Readiness Workbook Colour Edition">
+        <div class="product-age-badge">Ages 3–5</div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag" style="color:var(--sky);">School Readiness</div>
+        <h3>Nursery & KG Readiness Workbook</h3>
+        <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:8px;">130+ activities • Builds real school skills</div>
+        <p>A complete system to prepare your child for the classroom — pencil control, letters, numbers, visual thinking, and instructions.</p>
+        <div class="product-skills">
+          <span class="skill-pill" style="background:var(--leaf-light);color:#1A5C38;">✏️ Pencil Control</span>
+          <span class="skill-pill" style="background:var(--sun-light);color:#7A5500;">🔤 Letters & Numbers</span>
+          <span class="skill-pill" style="background:var(--coral-light);color:#7A1A00;">🧠 Visual Thinking</span>
+          <span class="skill-pill" style="background:var(--sky-light);color:#00567A;">📋 Instructions</span>
+        </div>
+        <div style="font-size:12px;color:#2D9C5A;font-weight:800;margin-bottom:14px;">✔ Age-appropriate &nbsp;•&nbsp; ✔ Structured progression &nbsp;•&nbsp; ✔ No prep needed</div>
+        <div class="product-buttons">
+          <a href="https://tinyurl.com/2ns4sw28" target="_blank" rel="noopener" class="btn-sm btn-amazon">🛒 View on Amazon (See Reviews)</a>
+        </div>
       </div>
     </div>
 
+    <!-- BOOK 3: B&W NURSERY -->
     <div class="product-card">
-      <img src="book3.png" style="width:100%">
-      <h3>Nursery B&W Workbook</h3>
-      <a href="https://tinyurl.com/39jpbfbj" class="btn btn-amazon">Amazon</a>
-      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
-      290+ activities • Builds real school skills
+      <div class="product-img-wrap" style="background:var(--sky-light);">
+        <img src="book3.png" alt="Nursery and KG Readiness Workbook Black and White Edition">
+        <div class="product-age-badge">Ages 3–5</div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag" style="color:var(--purple);">Distraction-Free</div>
+        <h3>Nursery & KG Workbook — Black & White Edition</h3>
+        <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:8px;">130+ activities • Builds real school skills</div>
+        <p>Same structured skill-building system in a clean format. Designed to build focus and concentration without colourful distractions.</p>
+        <div class="product-skills">
+          <span class="skill-pill" style="background:var(--surface);color:var(--ink-soft);">🖊️ Same 5-Step System</span>
+          <span class="skill-pill" style="background:var(--purple-light);color:#4C1D95;">🎯 Pure Focus</span>
+        </div>
+        <div style="font-size:12px;color:#2D9C5A;font-weight:800;margin-bottom:14px;">✔ Age-appropriate &nbsp;•&nbsp; ✔ Structured progression &nbsp;•&nbsp; ✔ No prep needed</div>
+        <div class="product-buttons">
+          <a href="https://tinyurl.com/39jpbfbj" target="_blank" rel="noopener" class="btn-sm btn-amazon">🛒 View on Amazon (See Reviews)</a>
+        </div>
+      </div>
     </div>
 
   </div>
 </div>
 
-<!-- INSIDE PAGES -->
+<!-- ── SKILLS SYSTEM ── -->
+<div class="skills-bg" id="skills">
+  <div class="skills-header">
+    <div class="section-label" style="color:rgba(255,255,255,0.6);">The 5-Step System</div>
+    <h2>Not worksheets. A complete skill-building progression.</h2>
+    <p>Each section builds on the previous one — exactly how classroom learning works.</p>
+  </div>
+  <div class="skills-steps">
+    <div class="skill-step">
+      <div class="skill-step-num">1</div>
+      <h4>Hand Control & Readiness</h4>
+      <p>Colouring, strokes, and pencil control to prepare the hand for writing.</p>
+    </div>
+    <div class="skill-step">
+      <div class="skill-step-num">2</div>
+      <h4>Animals & Everyday World</h4>
+      <p>Recognising common objects and building word-picture association.</p>
+    </div>
+    <div class="skill-step">
+      <div class="skill-step-num">3</div>
+      <h4>Visual Matching & Thinking</h4>
+      <p>Spotting differences, matching pictures, and completing simple patterns.</p>
+    </div>
+    <div class="skill-step">
+      <div class="skill-step-num">4</div>
+      <h4>Basic Concepts & Attributes</h4>
+      <p>Big/small, inside/outside, near/far — the concepts classrooms expect.</p>
+    </div>
+    <div class="skill-step">
+      <div class="skill-step-num">5</div>
+      <h4>Understanding Instructions</h4>
+      <p>Listening carefully, following rules, completing tasks in the right order.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── INSIDE PAGES ── -->
 <div class="section-wrap">
+  <div class="section-header">
+    <div class="section-label">Inside the Book</div>
+    <h2>See what your child will practise</h2>
+    <p>Simple, clean activities that build real skills — no clutter, no confusion.</p>
+  </div>
   <div class="inside-grid">
-    <img src="inside1.png">
-    <img src="inside2.png">
-    <img src="inside3.png">
-    <img src="inside4.png">
-    <img src="inside5.png">
-    <img src="inside6.png">
-    <img src="inside7.png">
-    <img src="inside8.png">
-    <img src="inside9.png">
-    <img src="inside10.png">
-    <img src="inside11.png">
-    <img src="inside12.png">
+    <img src="inside1.png" alt="Inside page 1">
+    <img src="inside2.png" alt="Inside page 2">
+    <img src="inside3.png" alt="Inside page 3">
+    <img src="inside4.png" alt="Inside page 4">
+    <img src="inside5.png" alt="Inside page 5">
+    <img src="inside6.png" alt="Inside page 6">
+    <img src="inside7.png" alt="Inside page 7">
+    <img src="inside8.png" alt="Inside page 8">
+    <img src="inside9.png" alt="Inside page 9">
+    <img src="inside10.png" alt="Inside page 10">
+    <img src="inside11.png" alt="Inside page 11">
+    <img src="inside12.png" alt="Inside page 12">
   </div>
 </div>
 
-<div style="text-align:center;margin-bottom:30px;">
-  <div style="display:inline-block;background:#FFF3CC;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:800;color:#7A5500;">
-    ✔ Simple to use • ✔ No teaching experience needed • ✔ 10 mins a day
+<!-- ── WHY DIFFERENT ── -->
+<div class="section-wrap" style="padding-top:0;">
+  <div class="section-header">
+    <div class="section-label">Why KJD Learning</div>
+    <h2>Books built around how children actually learn</h2>
   </div>
-</div> 
-  
-<!-- REVIEWS -->
-<div class="section-wrap">
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon" style="background:var(--sun-light);">🎯</div>
+      <h3>Real readiness, not entertainment</h3>
+      <p>Most toddler books focus on colour and stickers. Ours focus on the foundational skills preschools actually assess.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:var(--leaf-light);">📈</div>
+      <h3>Structured progression</h3>
+      <p>Each page builds on the last. Your child feels genuine progress — not just random activity after activity.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:var(--sky-light);">🧠</div>
+      <h3>Age-appropriate challenge</h3>
+      <p>A 5-dot difficulty scale on every page means you always know if the task is right for where your child is today.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:var(--coral-light);">🏠</div>
+      <h3>No teaching background needed</h3>
+      <p>Every activity is self-explanatory. Sit down, open the book, and go — the system guides both of you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── HOW TO USE ── -->
+<div class="how-bg">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-label" style="color:var(--leaf);">How to use it</div>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(26px,3vw,38px);font-weight:700;color:var(--ink);">10 minutes a day is all it takes</h2>
+      <p>Short, consistent sessions work better than long ones.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h4>Pick up where you left off</h4>
+        <p>The built-in progress tracker means no planning needed.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h4>Do 2–3 pages together</h4>
+        <p>Read the instruction, let your child try first before helping.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h4>Check the difficulty dots</h4>
+        <p>Each page shows how hard it is — stop when it gets too challenging.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h4>Repeat tricky pages</h4>
+        <p>It's fine to redo pages. Repetition is how skills actually stick.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── REVIEWS ── -->
+<div class="section-wrap" id="reviews">
+  <div style="text-align:center;margin-bottom:30px;">
+    <div style="display:inline-block;background:#FFF3CC;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:800;color:#7A5500;">
+      ✔ Simple to use &nbsp;•&nbsp; ✔ No teaching experience needed &nbsp;•&nbsp; ✔ 10 mins a day
+    </div>
+  </div>
+  <div class="section-header" style="margin-bottom:32px;">
+    <div class="section-label">What Parents Are Saying</div>
+    <h2>Real feedback from real families</h2>
+  </div>
   <div class="reviews-grid">
-
-    <div class="review-card">
-      ⭐⭐⭐⭐⭐
-      <p>The book is an engaging resource designed to support early learning in a fun way. It offers a variety of age-appropriate activities such as tracing, matching, and simple exercises that help develop hand-eye coordination, letters and numbers readiness for joining school</p>
+    <div class="review-card" style="border-color:var(--sun);">
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"The book is an engaging resource designed to support early learning in a fun way. It offers a variety of age-appropriate activities such as tracing, matching, and simple exercises that help develop hand-eye coordination, letters and numbers readiness for joining school."</p>
+      <div class="review-author">Verified Buyer</div>
+      <div class="review-source">Amazon India · Verified Purchase</div>
     </div>
-
-    <div class="review-card">
-      ⭐⭐⭐⭐⭐
-      <p>This book is well structured and is definitely helpful for all parents to teach their kids.It is a perfect book which gives the pencil control,letter readiness,Number readiness blended with thinking and logic skills too.It is well designed to build the fundamental abilities within the kids who can understand and do better in school.In a nut shell this book will give lot of comfort to the parents to make their kids future to start.</p>
+    <div class="review-card" style="border-color:var(--leaf);">
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"This book is well structured and is definitely helpful for all parents to teach their kids. It is a perfect book which gives the pencil control, letter readiness, number readiness blended with thinking and logic skills too. It is well designed to build the fundamental abilities within the kids who can understand and do better in school. In a nut shell this book will give lot of comfort to the parents to make their kids future to start."</p>
+      <div class="review-author">Verified Buyer</div>
+      <div class="review-source">Amazon India · Verified Purchase</div>
     </div>
-
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ── SHOP CTA ── -->
+<div class="shop-cta" id="shop">
+  <h2>Start building school skills today</h2>
+  <p>Available on Amazon India. Physical books, delivered to your door.</p>
+  <p style="margin-top:10px;font-size:14px;color:rgba(255,255,255,0.7);">Most parents see visible improvement in 2–3 weeks</p>
+  <br>
+  <div class="shop-cta-buttons">
+    <a href="https://tinyurl.com/4sxj8zde" target="_blank" rel="noopener" class="btn btn-amazon">🛒 First Skills Workbook (Ages 1.5–3)</a>
+    <a href="https://tinyurl.com/2ns4sw28" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Nursery & KG — Colour Edition</a>
+    <a href="https://tinyurl.com/39jpbfbj" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Nursery & KG — B&W Edition</a>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<div class="section-wrap" id="about">
+  <div class="about-wrap">
+    <div class="about-visual">
+      <div class="about-big-letter">K</div>
+      <div class="about-badge-stack">
+        <div class="about-badge" style="border-color:var(--sun);">
+          <div class="label">Age range</div>Toddlers & preschoolers (Ages 1.5–5)
+        </div>
+        <div class="about-badge" style="border-color:var(--leaf);">
+          <div class="label">Format</div>Physical workbooks · Activity-based learning
+        </div>
+        <div class="about-badge" style="border-color:var(--sky);">
+          <div class="label">Available at</div>Amazon India · kjdlearning.com
+        </div>
+        <div class="about-badge" style="border-color:var(--coral);">
+          <div class="label">Made in</div>India 🌱
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About KJD Learning</div>
+      <h2>A small brand with a big belief in early education</h2>
+      <p>KJD Learning was founded with one simple idea: that the earliest years of a child's education are the most important — and deserve materials as thoughtful as the children using them.</p>
+      <p>We create workbooks for ages 1.5–5 that go beyond colouring and entertainment. Every activity is carefully designed to build the specific skills that preschools and early classrooms actually expect.</p>
+      <p>No screens. No subscriptions. Just good books that work.</p>
+      <p style="font-weight:800;color:var(--leaf);">Made in India, for learners everywhere. 🌱</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
 <footer>
-  © 2026 KJD Learning
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-text">KJD Learning</div>
+        <p>School readiness workbooks for children aged 1.5–5. Structured, purposeful, and made with care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="https://tinyurl.com/4sxj8zde" target="_blank" rel="noopener">First Skills Workbook</a>
+        <a href="https://tinyurl.com/2ns4sw28" target="_blank" rel="noopener">Nursery & KG — Colour</a>
+        <a href="https://tinyurl.com/39jpbfbj" target="_blank" rel="noopener">Nursery & KG — B&W</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#products">Workbooks</a>
+        <a href="#skills">Skills System</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 KJD Learning. All rights reserved.</span>
+      <span>kjdlearning.com</span>
+    </div>
+  </div>
 </footer>
 
 </body>

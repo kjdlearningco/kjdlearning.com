@@ -5,107 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KJD Learning – School Readiness Workbooks</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#FFF7ED;
-  color:#1F2937;
-}
+body { margin:0; font-family:Nunito,sans-serif; background:#FAFAF7; color:#1A1A2E; }
 
-/* NAV */
-nav {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 5%;
-  background:white;
-  border-bottom:1px solid #eee;
-}
+nav { display:flex; justify-content:space-between; align-items:center; padding:15px 5%; background:white; border-bottom:1px solid #eee; }
+nav img { height:42px; }
 
-nav img {
-  height:45px;
-}
+.hero { padding:60px 5%; text-align:center; }
+.hero h1 { font-size:36px; margin-bottom:10px; }
+.hero p { max-width:600px; margin:0 auto 15px; }
 
-nav a {
-  text-decoration:none;
-  font-weight:bold;
-  margin-left:20px;
-  color:#333;
-}
+.btn { padding:12px 20px; border-radius:30px; text-decoration:none; font-weight:bold; margin:5px; display:inline-block; }
+.amazon { background:#FFB703; color:black; }
+.etsy { background:#F05A28; color:white; }
 
-/* HERO */
-.hero {
-  padding:60px 5%;
-  text-align:center;
-}
+.section { padding:60px 5%; max-width:1100px; margin:auto; }
 
-.hero h1 {
-  font-size:40px;
-  margin-bottom:10px;
-}
+.products { display:grid; gap:40px; }
 
-.hero p {
-  font-size:18px;
-  max-width:600px;
-  margin:0 auto 20px;
-}
+.product img { width:220px; border-radius:10px; }
 
-.btn {
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:30px;
-  text-decoration:none;
-  margin:5px;
-  font-weight:bold;
-}
+.grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.grid img { width:200px; border-radius:10px; }
 
-.btn-amazon { background:#FF9900; color:black; }
-.btn-etsy { background:#F05A28; color:white; }
+.review { background:white; padding:20px; border-radius:10px; }
 
-/* PRODUCTS */
-.section {
-  padding:60px 5%;
-}
-
-.product {
-  margin-bottom:50px;
-}
-
-.product img {
-  width:200px;
-  border-radius:10px;
-}
-
-/* GRID */
-.grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.card {
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  flex:1;
-  min-width:250px;
-}
-
-/* REVIEWS */
-.review {
-  background:white;
-  padding:20px;
-  border-radius:12px;
-}
-
-/* FOOTER */
-footer {
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:30px;
-}
+footer { background:#111; color:white; text-align:center; padding:30px; }
 </style>
 </head>
 
@@ -113,135 +40,105 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <!-- REPLACE WITH YOUR LOGO -->
-  <img src="logo.png" alt="KJD Learning">
-
-  <div>
-    <a href="#products">Workbooks</a>
-    <a href="#reviews">Reviews</a>
-  </div>
+<img src="logo.png">
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <h1>Build School Readiness Before School Starts</h1>
+<div class="hero">
+<h1>Build School Readiness Before School Starts</h1>
 
-  <p>
-    Structured workbooks that train pencil control, focus, and thinking skills — 
-    step by step, in just 10 minutes a day.
-  </p>
+<p>Structured workbooks that train pencil control, focus, and thinking skills — step by step, in just 10 minutes a day.</p>
 
-  <p><strong>Not random worksheets. A complete skill-building system.</strong></p>
+<p><strong>Not random worksheets. A complete skill-building system.</strong></p>
 
-  <a href="YOUR_AMAZON_LINK" class="btn btn-amazon">Buy on Amazon</a>
-  <a href="YOUR_ETSY_LINK" class="btn btn-etsy">Shop on Etsy</a>
-</section>
+<a href="AMAZON_LINK_MAIN_BOOK" class="btn amazon">Buy on Amazon</a>
+<a href="ETSY_LINK_MAIN" class="btn etsy">Shop on Etsy</a>
+</div>
 
 <!-- PRODUCTS -->
-<section class="section" id="products">
-  <h2>Our Workbooks</h2>
+<div class="section products">
 
-  <!-- PRODUCT 1 -->
-  <div class="product">
-    <h3>Nursery & KG Readiness Workbook (Ages 3–5)</h3>
+<div class="product">
+<h3>First Skills Workbook (Ages 1.5–3)</h3>
+<img src="book1.png">
 
-    <!-- REPLACE IMAGE -->
-    <img src="book1.png">
+<p>Builds attention, hand control, matching, and basic concepts.</p>
 
-    <p><strong>Builds:</strong> Pencil control, letters, numbers, thinking, instructions</p>
+<a href="AMAZON_LINK_BOOK1" class="btn amazon">Amazon</a>
+<a href="ETSY_LINK_BOOK1" class="btn etsy">Etsy</a>
+</div>
 
-    <p><strong>System:</strong> Step-by-step progression across 5 skill areas</p>
+<div class="product">
+<h3>Nursery & KG Readiness Workbook (Ages 3–5)</h3>
+<img src="book2.png">
 
-    <a href="YOUR_AMAZON_LINK" class="btn btn-amazon">Buy on Amazon</a>
-    <a href="YOUR_ETSY_LINK" class="btn btn-etsy">Download on Etsy</a>
-  </div>
+<p>Full system: pencil control, letters, numbers, thinking, instructions.</p>
 
-  <!-- PRODUCT 2 -->
-  <div class="product">
-    <h3>First Skills Workbook (Ages 1.5–3)</h3>
+<a href="AMAZON_LINK_BOOK2" class="btn amazon">Amazon</a>
+<a href="ETSY_LINK_BOOK2" class="btn etsy">Etsy</a>
+</div>
 
-    <img src="book2.png">
+<div class="product">
+<h3>Black & White Edition</h3>
+<img src="book3.png">
 
-    <p><strong>Builds:</strong> Attention, hand control, matching, basic concepts</p>
+<p>Same system, distraction-free format.</p>
 
-    <p><strong>Focus:</strong> Real readiness, not entertainment</p>
-  </div>
+<a href="AMAZON_LINK_BOOK3" class="btn amazon">Amazon</a>
+<a href="ETSY_LINK_BOOK3" class="btn etsy">Etsy</a>
+</div>
 
-  <!-- PRODUCT 3 -->
-  <div class="product">
-    <h3>Nursery & KG Workbook (Black & White Edition)</h3>
+</div>
 
-    <img src="book3.png">
+<!-- INSIDE -->
+<div class="section">
+<h2>See What Your Child Will Practice</h2>
 
-    <p>Same structured system, distraction-free format</p>
-  </div>
-
-</section>
-
-<!-- SEE INSIDE -->
-<section class="section">
-  <h2>See What Your Child Will Practice</h2>
-
-  <div class="grid">
-    <img src="inside1.png">
-    <img src="inside2.png">
-    <img src="inside3.png">
-  </div>
-</section>
+<div class="grid">
+<img src="inside1.png">
+<img src="inside2.png">
+<img src="inside3.png">
+<img src="inside4.png">
+<img src="inside5.png">
+</div>
+</div>
 
 <!-- SYSTEM -->
-<section class="section">
-  <h2>5-Step Skill Building System</h2>
+<div class="section">
+<h2>5-Step Skill Building System</h2>
 
-  <p>
-    Pencil Control → Letters → Numbers → Thinking → Instructions
-  </p>
-
-  <p>
-    Each section builds on the previous one, preparing your child for real classroom learning.
-  </p>
-</section>
+<p style="text-align:center;">
+Pencil Control → Letters → Numbers → Thinking → Instructions
+</p>
+</div>
 
 <!-- REVIEWS -->
-<section class="section" id="reviews">
-  <h2>What Parents Are Saying</h2>
+<div class="section">
+<h2>What Parents Are Saying</h2>
 
-  <div class="grid">
+<div class="grid">
 
-    <!-- REPLACE THESE REVIEWS -->
-    <div class="review">
-      ⭐⭐⭐⭐⭐
-      <p>PASTE REAL AMAZON REVIEW HERE</p>
-    </div>
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>PASTE AMAZON REVIEW HERE</p>
+</div>
 
-    <div class="review">
-      ⭐⭐⭐⭐⭐
-      <p>PASTE REAL AMAZON REVIEW HERE</p>
-    </div>
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>PASTE AMAZON REVIEW HERE</p>
+</div>
 
-    <div class="review">
-      ⭐⭐⭐⭐⭐
-      <p>PASTE REAL AMAZON REVIEW HERE</p>
-    </div>
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>PASTE AMAZON REVIEW HERE</p>
+</div>
 
-  </div>
-</section>
-
-<!-- HOW TO USE -->
-<section class="section">
-  <h2>How to Use</h2>
-
-  <p>
-    • 10–15 minutes daily<br>
-    • Follow the sequence<br>
-    • Repeat difficult pages<br>
-    • Stay consistent
-  </p>
-</section>
+</div>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <p>© KJD Learning</p>
+<p>© KJD Learning</p>
 </footer>
 
 </body>

@@ -1,44 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KJD Learning – School Readiness Workbooks</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KJD Learning – School Readiness Workbooks for Toddlers</title>
+<meta name="description" content="KJD Learning creates structured school readiness workbooks for children aged 1.5–5." />
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
 
 <style>
-body { margin:0; font-family:Nunito,sans-serif; background:#FAFAF7; color:#1A1A2E; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sun:#FFB703;
+  --sun-light:#FFF3CC;
+  --leaf:#2D9C5A;
+  --sky:#0099CC;
+  --ink:#1A1A2E;
+  --muted:#6B6B8A;
+  --surface:#FAFAF7;
+  --white:#fff;
+  --radius:18px;
+}
+
+/* GLOBAL */
+body {
+  font-family:'Nunito',sans-serif;
+  background:var(--surface);
+  color:var(--ink);
+  line-height:1.6;
+}
 
 /* NAV */
-nav { display:flex; justify-content:space-between; align-items:center; padding:15px 5%; background:white; border-bottom:1px solid #eee; }
-nav img { height:42px; }
+nav {
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.85);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
 
 /* HERO */
-.hero { padding:60px 5%; text-align:center; }
-.hero h1 { font-size:36px; margin-bottom:10px; }
-.hero p { max-width:600px; margin:0 auto 15px; }
+.hero {
+  animation:fadeUp 0.8s ease both;
+}
 
-.btn { padding:12px 20px; border-radius:30px; text-decoration:none; font-weight:bold; margin:5px; display:inline-block; }
-.amazon { background:#FFB703; color:black; }
-.etsy { background:#F05A28; color:white; }
+.hero h1 {
+  letter-spacing:-0.02em;
+}
 
-/* SECTIONS */
-.section { padding:60px 5%; max-width:1100px; margin:auto; }
+.hero img {
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+}
 
-.products { display:grid; gap:40px; }
+/* BUTTON */
+.btn {
+  transition:all .2s ease;
+}
 
-.product img { width:220px; border-radius:10px; }
+.btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-/* GRID */
-.grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.grid img { width:200px; border-radius:10px; }
+/* PRODUCT CARDS */
+.product-card {
+  transition:all .25s ease;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.product-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  border-radius:12px;
+}
+
+/* INSIDE GRID */
+.inside-grid img {
+  border-radius:14px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.inside-grid img:hover {
+  transform:scale(1.04);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
 /* REVIEWS */
-.review { background:white; padding:20px; border-radius:10px; max-width:300px; }
+.review-card {
+  border:1px solid rgba(0,0,0,0.05);
+  transition:.25s ease;
+}
+
+.review-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
 
 /* FOOTER */
-footer { background:#111; color:white; text-align:center; padding:30px; }
+footer {
+  letter-spacing:.3px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .hero{grid-template-columns:1fr}
+}
 </style>
 </head>
 
@@ -46,104 +125,101 @@ footer { background:#111; color:white; text-align:center; padding:30px; }
 
 <!-- NAV -->
 <nav>
-<img src="logo.png" alt="KJD Learning">
+  <img src="logo.png" height="42">
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-<h1>Build School Readiness Before School Starts</h1>
-
-<p>Structured workbooks that train pencil control, focus, and thinking skills — step by step, in just 10 minutes a day.</p>
-
-<p><strong>Not random worksheets. A complete skill-building system.</strong></p>
-
-<a href="AMAZON_LINK_MAIN_BOOK" class="btn amazon">Buy on Amazon</a>
-<a href="ETSY_LINK_MAIN" class="btn etsy">Shop on Etsy</a>
+  <div>
+    <h1>Build school readiness <em>before</em> school starts</h1>
+    <p>Structured workbooks that train pencil control, focus, and thinking skills — step by step.</p>
+    <a href="https://tinyurl.com/4sxj8zde" class="btn btn-amazon">🛒 View on Amazon (See Reviews)</a>
+  </div>
+  <div style="margin-top:14px;font-size:13px;color:#6B6B8A;font-weight:700;">
+  ⭐ Trusted by parents • 📦 Available on Amazon India • ⏳ Limited stock batches
+  </div>
+  <div>
+    <img src="book1.png" style="width:100%">
+  </div>
 </div>
 
 <!-- PRODUCTS -->
-<div class="section products">
+<div class="section-wrap">
+  <div class="products-grid">
 
-<div class="product">
-<h3>First Skills Workbook (Ages 1.5–3)</h3>
-<img src="book1.png">
+    <div class="product-card">
+      <img src="book1.png" style="width:100%">
+      <h3>First Skills Workbook</h3>
+      <a href="https://tinyurl.com/4sxj8zde" class="btn btn-amazon">Amazon</a>
+      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
+      130+ activities • Builds real school skills
+      </div>
+    </div>
 
-<p>Builds attention, hand control, matching, and basic concepts.</p>
+    <div class="product-card">
+      <img src="book2.png" style="width:100%">
+      <h3>Nursery Colour Workbook</h3>
+      <a href="https://tinyurl.com/2ns4sw28" class="btn btn-amazon">Amazon</a>
+      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
+      290+ activities • Builds real school skills
+      </div>
+    </div>
 
-<a href="https://tinyurl.com/4sxj8zde" class="btn amazon">Amazon</a>
+    <div class="product-card">
+      <img src="book3.png" style="width:100%">
+      <h3>Nursery B&W Workbook</h3>
+      <a href="https://tinyurl.com/39jpbfbj" class="btn btn-amazon">Amazon</a>
+      <div style="font-size:12px;color:#6B6B8A;font-weight:700;margin-bottom:6px;">
+      290+ activities • Builds real school skills
+    </div>
+
+  </div>
 </div>
 
-<div class="product">
-<h3>Nursery & KG Readiness Workbook (Ages 3–5)</h3>
-<img src="book2.png">
-
-<p>Full system: pencil control, letters, numbers, thinking, instructions.</p>
-
-<a href="https://tinyurl.com/2ns4sw28" class="btn amazon">Amazon</a>
+<!-- INSIDE PAGES -->
+<div class="section-wrap">
+  <div class="inside-grid">
+    <img src="inside1.png">
+    <img src="inside2.png">
+    <img src="inside3.png">
+    <img src="inside4.png">
+    <img src="inside5.png">
+    <img src="inside6.png">
+    <img src="inside7.png">
+    <img src="inside8.png">
+    <img src="inside9.png">
+    <img src="inside10.png">
+    <img src="inside11.png">
+    <img src="inside12.png">
+  </div>
 </div>
 
-<div class="product">
-<h3>Black & White Edition</h3>
-<img src="book3.png">
-
-<p>Same system, distraction-free format.</p>
-
-<a href="https://tinyurl.com/39jpbfbj" class="btn amazon">Amazon</a>
-</div>
-
-</div>
-
-<!-- INSIDE (12 IMAGES) -->
-<div class="section">
-<h2>See What Your Child Will Practice</h2>
-
-<div class="grid">
-<img src="inside1.png">
-<img src="inside2.png">
-<img src="inside3.png">
-<img src="inside4.png">
-<img src="inside5.png">
-<img src="inside6.png">
-<img src="inside7.png">
-<img src="inside8.png">
-<img src="inside9.png">
-<img src="inside10.png">
-<img src="inside11.png">
-<img src="inside12.png">
-</div>
-</div>
-
-<!-- SYSTEM -->
-<div class="section">
-<h2>5-Step Skill Building System</h2>
-
-<p style="text-align:center;">
-Pencil Control → Letters → Numbers → Thinking → Instructions
-</p>
-</div>
-
+<div style="text-align:center;margin-bottom:30px;">
+  <div style="display:inline-block;background:#FFF3CC;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:800;color:#7A5500;">
+    ✔ Simple to use • ✔ No teaching experience needed • ✔ 10 mins a day
+  </div>
+</div> 
+  
 <!-- REVIEWS -->
-<div class="section">
-<h2>What Parents Are Saying</h2>
+<div class="section-wrap">
+  <div class="reviews-grid">
 
-<div class="grid">
+    <div class="review-card">
+      ⭐⭐⭐⭐⭐
+      <p>The book is an engaging resource designed to support early learning in a fun way. It offers a variety of age-appropriate activities such as tracing, matching, and simple exercises that help develop hand-eye coordination, letters and numbers readiness for joining school</p>
+    </div>
 
-<div class="review">
-⭐⭐⭐⭐⭐
-<p>"The book is an engaging resource designed to support early learning in a fun way. It offers a variety of age-appropriate activities such as tracing, matching, and simple exercises that help develop hand-eye coordination, letters and numbers readiness for joining school"</p>
-</div>
+    <div class="review-card">
+      ⭐⭐⭐⭐⭐
+      <p>This book is well structured and is definitely helpful for all parents to teach their kids.It is a perfect book which gives the pencil control,letter readiness,Number readiness blended with thinking and logic skills too.It is well designed to build the fundamental abilities within the kids who can understand and do better in school.In a nut shell this book will give lot of comfort to the parents to make their kids future to start.</p>
+    </div>
 
-<div class="review">
-⭐⭐⭐⭐⭐
-<p>"This book is well structured and is definitely helpful for all parents to teach their kids.It is a perfect book which gives the pencil control,letter readiness,Number readiness blended with thinking and logic skills too.It is well designed to build the fundamental abilities within the kids who can understand and do better in school.In a nut shell this book will give lot of comfort to the parents to make their kids future to start."</p>
-</div>
-
-</div>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-<p>© KJD Learning</p>
+  © 2026 KJD Learning
 </footer>
 
 </body>
